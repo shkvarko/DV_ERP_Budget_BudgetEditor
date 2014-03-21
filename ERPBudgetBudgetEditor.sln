@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPBudgetBudgetEditor", "ERPBudgetBudgetEditor.csproj", "{0169E07D-7DCC-4B74-845B-25E5BCDDE97F}"
 EndProject
 Global

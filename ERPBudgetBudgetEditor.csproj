@@ -96,6 +96,10 @@
     <Reference Include="DevExpress.XtraVerticalGrid.v7.2, Version=7.2.4.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>P:\IT отдел\UniXP\EPPlus.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="ERP_Budget.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7483d705c8cfb03e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>P:\IT отдел\UniXP\Options Dll\ERP_Budget.Common.dll</HintPath>
@@ -175,6 +179,12 @@
     <Compile Include="frmDebitArticleList.Designer.cs">
       <DependentUpon>frmDebitArticleList.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmImportDataInBudgetEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImportDataInBudgetEditor.Designer.cs">
+      <DependentUpon>frmImportDataInBudgetEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTrnList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDebitArticleList.resx">
       <DependentUpon>frmDebitArticleList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImportDataInBudgetEditor.resx">
+      <DependentUpon>frmImportDataInBudgetEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTrnList.resx">
       <DependentUpon>frmTrnList.cs</DependentUpon>
