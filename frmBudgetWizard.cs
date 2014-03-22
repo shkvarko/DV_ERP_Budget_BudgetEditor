@@ -17,6 +17,10 @@ namespace ErpBudgetBudgetEditor
         private List<ERP_Budget.Common.CBudgetDep> m_BudgetDepList;
         private ERP_Budget.Common.CCurrency m_objCurrencyMain;
         private System.Boolean m_bNewBudget;
+        private frmImportDataInBudgetEditor m_frmImportDataInBudgetEditor;
+        private System.String m_strXLSImportFilePath;
+        private System.Int32 m_iXLSSheetImport;
+        private List<System.String> m_SheetList;
         #endregion
 
         #region Конструктор
@@ -34,6 +38,12 @@ namespace ErpBudgetBudgetEditor
             this.m_BudgetDepList = null;
             this.m_objCurrencyMain = null;
             this.m_bNewBudget = false;
+
+            m_strXLSImportFilePath = System.String.Empty;
+            m_iXLSSheetImport = 0;
+            m_SheetList = null;
+
+            m_frmImportDataInBudgetEditor = new frmImportDataInBudgetEditor(m_objProfile);
         }
         #endregion
 
@@ -413,17 +423,33 @@ namespace ErpBudgetBudgetEditor
             return;
         }
 
+        private ERP_Budget.Common.CBudget GetFocusedBudget()
+        {
+            ERP_Budget.Common.CBudget objBudget = null;
+            try
+            {
+                objBudget = (((treeListBudget.Nodes.Count > 0) &&
+                    (treeListBudget.FocusedNode != null) &&
+                    (treeListBudget.FocusedNode.Tag != null)) ? (ERP_Budget.Common.CBudget)treeListBudget.FocusedNode.Tag : null);
+            }
+            catch
+            {
+                objBudget = null;
+            }
+            finally
+            {
+            }
+
+            return objBudget;
+        }
+
         private void treeListBudget_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
         {
             try
             {
                 this.m_bCancelEvents = true;
 
-                ERP_Budget.Common.CBudget objBudget  = ( ((treeListBudget.Nodes.Count > 0) && 
-                    (treeListBudget.FocusedNode != null) && 
-                    (treeListBudget.FocusedNode.Tag != null)) ? (ERP_Budget.Common.CBudget)treeListBudget.FocusedNode.Tag : null );
-
-                LoadBudgetProperties( objBudget );
+                LoadBudgetProperties(GetFocusedBudget());
             }
             catch( System.Exception f )
             {
@@ -1124,6 +1150,45 @@ namespace ErpBudgetBudgetEditor
         }
         #endregion
 
+        #region Импорт бюджета из файла MS Excel
+        private void ImportArticleListInBudget()
+        {
+            if (treeListBudget.Nodes.Count == 0) { return; }
+            if (treeListBudget.FocusedNode == null) { return; }
+            try
+            {
+                if (m_frmImportDataInBudgetEditor != null)
+                {
+                    m_frmImportDataInBudgetEditor.OpenForImportDataInBudgetEditor( GetFocusedBudget(), 
+                        m_strXLSImportFilePath, m_iXLSSheetImport, m_SheetList);
+
+                    DialogResult dlgRes = m_frmImportDataInBudgetEditor.DialogResult;
+
+                    if (dlgRes == System.Windows.Forms.DialogResult.OK)
+                    {
+                        //LoadBudgetList();
+                    }
+
+                    m_strXLSImportFilePath = m_frmImportDataInBudgetEditor.FileFullName;
+                    m_iXLSSheetImport = m_frmImportDataInBudgetEditor.SelectedSheetId;
+                    m_SheetList = m_frmImportDataInBudgetEditor.SheetList;
+                }
+            }
+            catch (System.Exception f)
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show("ImportArticleListInBudget.\n\nТекст ошибки: " + f.Message, "Ошибка",
+                   System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            }
+            finally
+            {
+            }
+            return;
+        }
+        private void barBtnImportBudget_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ImportArticleListInBudget();
+        }
+        #endregion
 
 
     }

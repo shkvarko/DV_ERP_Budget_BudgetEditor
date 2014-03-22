@@ -36,6 +36,7 @@ namespace ErpBudgetBudgetEditor
             this.barBtnDelete = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnPrint = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnCopy = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnImportBudget = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -110,8 +111,9 @@ namespace ErpBudgetBudgetEditor
             this.barBtnAdd,
             this.barBtnDelete,
             this.barBtnPrint,
-            this.barBtnCopy});
-            this.barManager.MaxItemId = 5;
+            this.barBtnCopy,
+            this.barBtnImportBudget});
+            this.barManager.MaxItemId = 6;
             this.barManager.ToolTipController = this.toolTipController;
             // 
             // bar1
@@ -125,7 +127,8 @@ namespace ErpBudgetBudgetEditor
             new DevExpress.XtraBars.LinkPersistInfo(this.barBtnAdd),
             new DevExpress.XtraBars.LinkPersistInfo(this.barBtnDelete),
             new DevExpress.XtraBars.LinkPersistInfo(this.barBtnPrint),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnCopy)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnCopy),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnImportBudget)});
             this.bar1.Text = "Custom 1";
             // 
             // barBtnRefresh
@@ -170,6 +173,13 @@ namespace ErpBudgetBudgetEditor
             this.barBtnCopy.Id = 4;
             this.barBtnCopy.Name = "barBtnCopy";
             this.barBtnCopy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnCopy_ItemClick);
+            // 
+            // barBtnImportBudget
+            // 
+            this.barBtnImportBudget.Glyph = global::ErpBudgetBudgetEditor.Properties.Resources.text_tree;
+            this.barBtnImportBudget.Id = 5;
+            this.barBtnImportBudget.Name = "barBtnImportBudget";
+            this.barBtnImportBudget.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImportBudget_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -748,5 +758,6 @@ namespace ErpBudgetBudgetEditor
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private DevExpress.XtraEditors.MemoEdit txtBudgetManagerList;
         private DevExpress.XtraEditors.SimpleButton btnLoadBudgetManagerList;
+        private DevExpress.XtraBars.BarButtonItem barBtnImportBudget;
     }
 }
