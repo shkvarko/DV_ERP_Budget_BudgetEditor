@@ -967,6 +967,9 @@ namespace ErpBudgetBudgetEditor
                     System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Question ) == DialogResult.Yes ) )
                 {
                     System.String strErr = System.String.Empty;
+                    
+                    this.Cursor = Cursors.WaitCursor;
+
                     if (bDeleteBudget(treeListBudget.FocusedNode, iRowHndl, ref strErr) == true)
                     {
                         SetModified(false);
@@ -982,6 +985,8 @@ namespace ErpBudgetBudgetEditor
                             strErr, "Ошибка",
                             System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                     }
+
+                    this.Cursor = Cursors.Default;
                 }
             }
             catch( System.Exception f )
