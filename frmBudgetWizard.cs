@@ -1165,7 +1165,7 @@ namespace ErpBudgetBudgetEditor
                 if (m_frmImportDataInBudgetEditor != null)
                 {
                     m_frmImportDataInBudgetEditor.OpenForImportDataInBudgetEditor( GetFocusedBudget(), 
-                        m_strXLSImportFilePath, m_iXLSSheetImport, m_SheetList);
+                        m_strXLSImportFilePath, m_iXLSSheetImport, m_SheetList, m_CurrencyList );
 
                     DialogResult dlgRes = m_frmImportDataInBudgetEditor.DialogResult;
 

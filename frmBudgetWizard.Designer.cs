@@ -28,8 +28,7 @@ namespace ErpBudgetBudgetEditor
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.barManager = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager = new DevExpress.XtraBars.BarManager();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barBtnRefresh = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnAdd = new DevExpress.XtraBars.BarButtonItem();
@@ -41,7 +40,7 @@ namespace ErpBudgetBudgetEditor
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.toolTipController = new DevExpress.Utils.ToolTipController(this.components);
+            this.toolTipController = new DevExpress.Utils.ToolTipController();
             this.tableLayoutBugrnd = new System.Windows.Forms.TableLayoutPanel();
             this.treeListBudget = new DevExpress.XtraTreeList.TreeList();
             this.colBudgetDate = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -133,7 +132,6 @@ namespace ErpBudgetBudgetEditor
             // 
             // barBtnRefresh
             // 
-            this.barBtnRefresh.Caption = "barBtnRefresh";
             this.barBtnRefresh.Glyph = global::ErpBudgetBudgetEditor.Properties.Resources.refresh;
             this.barBtnRefresh.Hint = "Обновить список";
             this.barBtnRefresh.Id = 0;
@@ -142,15 +140,14 @@ namespace ErpBudgetBudgetEditor
             // 
             // barBtnAdd
             // 
-            this.barBtnAdd.Caption = "barBtnAdd";
             this.barBtnAdd.Glyph = global::ErpBudgetBudgetEditor.Properties.Resources.add2;
+            this.barBtnAdd.Hint = "Зарегистрировать бюджет";
             this.barBtnAdd.Id = 1;
             this.barBtnAdd.Name = "barBtnAdd";
             this.barBtnAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnAdd_ItemClick);
             // 
             // barBtnDelete
             // 
-            this.barBtnDelete.Caption = "barBtnDelete";
             this.barBtnDelete.Glyph = global::ErpBudgetBudgetEditor.Properties.Resources.delete2;
             this.barBtnDelete.Hint = "Удалить запись";
             this.barBtnDelete.Id = 2;
@@ -159,7 +156,6 @@ namespace ErpBudgetBudgetEditor
             // 
             // barBtnPrint
             // 
-            this.barBtnPrint.Caption = "barBtnPrint";
             this.barBtnPrint.Glyph = global::ErpBudgetBudgetEditor.Properties.Resources.printer2;
             this.barBtnPrint.Hint = "Печать";
             this.barBtnPrint.Id = 3;
@@ -167,7 +163,6 @@ namespace ErpBudgetBudgetEditor
             // 
             // barBtnCopy
             // 
-            this.barBtnCopy.Caption = "Копировать";
             this.barBtnCopy.Glyph = global::ErpBudgetBudgetEditor.Properties.Resources.document_into;
             this.barBtnCopy.Hint = "Копировать бюджет";
             this.barBtnCopy.Id = 4;
@@ -177,6 +172,7 @@ namespace ErpBudgetBudgetEditor
             // barBtnImportBudget
             // 
             this.barBtnImportBudget.Glyph = global::ErpBudgetBudgetEditor.Properties.Resources.text_tree;
+            this.barBtnImportBudget.Hint = "Импорт бюджета из файла MS Excel";
             this.barBtnImportBudget.Id = 5;
             this.barBtnImportBudget.Name = "barBtnImportBudget";
             this.barBtnImportBudget.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnImportBudget_ItemClick);
