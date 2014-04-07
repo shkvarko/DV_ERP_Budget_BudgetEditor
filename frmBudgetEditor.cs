@@ -4363,6 +4363,11 @@ namespace ErpBudgetBudgetEditor
                                     if (objParentBudgetDepNode == null)
                                     {
                                         objParentBudgetDepNode = CreateBudgetDepNode(objParentNodeWithYear, objParentBudgetDep.Name, objBudgetDepList, objMenuItem);
+
+                                        if (objParentBudgetDepNode != null)
+                                        {
+                                            objParentBudgetDepNode.Nodes.Add(objRetBudgetDepNode);
+                                        }
                                     }
                                     else
                                     {
